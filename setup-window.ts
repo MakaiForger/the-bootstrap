@@ -8,7 +8,7 @@ function setupHtml(bgPath: string): string { return `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Makai Forger</title>
+<title>Makai Forge</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -86,7 +86,7 @@ body {
 <div id="overlay"></div>
 <div class="content">
   <div class="logo-area">
-    <h1>Makai Forger</h1>
+    <h1>Makai Forge</h1>
     <div class="subtitle">Preparando o ambiente</div>
   </div>
   <div class="status-area">
@@ -141,7 +141,7 @@ ipcRenderer.on('on-resource-progress', (_, data) => {
 ipcRenderer.on('on-setup-complete', () => {
   statusText.textContent='Pronto! Iniciando...';
   progressBar.style.width='100%';
-  addLog('Makai Forger pronto!','success');
+  addLog('Makai Forge pronto!','success');
 });
 </script>
 </body>

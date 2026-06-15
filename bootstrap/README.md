@@ -1,6 +1,6 @@
 # Bootstrap
 
-Orquestrador de inicialização do Makai Forger. Gerencia o ciclo de vida do app: verificação de atualizações, download de componentes, extração e inicialização da aplicação principal.
+Orquestrador de inicialização do Makai Forge. Gerencia o ciclo de vida do app: verificação de atualizações, download de componentes, extração e inicialização da aplicação principal.
 
 **Tecnologia:** TypeScript
 

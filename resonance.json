@@ -4,11 +4,11 @@
     "bootstrap": {
       "version": 1,
       "tag": "bootstrap-v0.0.1",
-      "sha256": "d74705009628e83737953691c5a7814212fa939673b2564be1473db8588a1fe2",
-      "size": 2462171,
+      "sha256": "d2c1aaade060773d6d90b3029cbf60b8dbde99c2fa9977ed02dfb7b6918f407f",
+      "size": 2461633,
       "original_size": 0,
       "archive": "bootstrap.tar.gz",
-      "github_repo": "MakaiForger/the-bootstrap",
+      "github_repo": "MakaiForge/the-bootstrap",
       "gitlab_project_id": 0
     },
     "installer-api": {
@@ -18,7 +18,7 @@
       "size": 6632,
       "original_size": 0,
       "archive": "installer-api.tar.gz",
-      "github_repo": "MakaiForger/the-bootstrap",
+      "github_repo": "MakaiForge/the-bootstrap",
       "gitlab_project_id": 83101354
     },
     "catalogo-db": {
@@ -28,7 +28,7 @@
       "size": 55951414,
       "original_size": 263843840,
       "archive": "catalogo.db.gz",
-      "github_repo": "MakaiForger/the-bootstrap",
+      "github_repo": "MakaiForge/the-bootstrap",
       "gitlab_project_id": 83081380
     },
     "proton-data-db": {
@@ -38,7 +38,7 @@
       "size": 77782443,
       "original_size": 293851136,
       "archive": "proton_data.db.gz",
-      "github_repo": "MakaiForger/the-bootstrap",
+      "github_repo": "MakaiForge/the-bootstrap",
       "gitlab_project_id": 83081381
     },
     "fork-catalog-data": {
@@ -48,7 +48,7 @@
       "size": 782000,
       "original_size": 319488,
       "archive": "fork_catalog.db.gz",
-      "github_repo": "MakaiForger/the-bootstrap",
+      "github_repo": "MakaiForge/the-bootstrap",
       "gitlab_project_id": 83110945
     },
     "game-dlls-data": {
@@ -58,7 +58,7 @@
       "size": 2947,
       "original_size": 20480,
       "archive": "game_dlls.db.gz",
-      "github_repo": "MakaiForger/the-bootstrap",
+      "github_repo": "MakaiForge/the-bootstrap",
       "gitlab_project_id": 83123076
     },
     "releases-data": {
@@ -68,7 +68,7 @@
       "size": 311296,
       "original_size": 0,
       "archive": "releases.tar.gz",
-      "github_repo": "MakaiForger/the-bootstrap",
+      "github_repo": "MakaiForge/the-bootstrap",
       "gitlab_project_id": 0
     }
   }

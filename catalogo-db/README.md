@@ -1,6 +1,6 @@
 # Catálogo DB
 
-Banco de dados mestre de jogos do Makai Forger. SQLite com ~179k jogos do catálogo público Steam, mais jogos custom (Genshin Impact, NIKKE, etc.).
+Banco de dados mestre de jogos do Makai Forge. SQLite com ~179k jogos do catálogo público Steam, mais jogos custom (Genshin Impact, NIKKE, etc.).
 
 Parte do ecossistema **The Bootstrap** — atualizado automaticamente pelo `resource-manager.ts` no Bootstrap.
 

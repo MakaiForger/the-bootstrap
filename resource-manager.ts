@@ -6,7 +6,7 @@ import { logger } from "@main/services/logger";
 import { WindowManager } from "@main/services/window-manager";
 
 const METADATA_MIRRORS = [
-  `https://raw.githubusercontent.com/MakaiForger/the-bootstrap/main/resonance.json`,
+  `https://raw.githubusercontent.com/MakaiForge/the-bootstrap/main/resonance.json`,
   `https://gitlab.com/api/v4/projects/83110951/repository/files/resonance.json/raw`,
 ];
 

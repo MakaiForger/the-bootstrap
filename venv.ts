@@ -8,7 +8,7 @@ import { WindowManager } from "@main/services/window-manager";
 const VENV_TAR = "venv.tar.gz";
 const VENV_TAG = "v1.0.0";
 const VENV_MIRRORS = [
-  `https://github.com/lucasgertke11-bot/venv/releases/download/${VENV_TAG}/${VENV_TAR}`,
+  `https://github.com/MakaiForge/venv/releases/download/${VENV_TAG}/${VENV_TAR}`,
   `https://gitlab.com/api/v4/projects/83079801/packages/generic/venv/1.0.0/${VENV_TAR}`,
 ];
 

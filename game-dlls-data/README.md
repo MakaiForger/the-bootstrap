@@ -1,6 +1,6 @@
 # Game DLLs Data
 
-Banco de dados SQLite com recomendações de DLLs e comandos winetricks para jogos rodando via Proton no Makai Forger.
+Banco de dados SQLite com recomendações de DLLs e comandos winetricks para jogos rodando via Proton no Makai Forge.
 
 Parte do ecossistema **The Bootstrap** — atualizado automaticamente pelo `resource-manager.ts`.
 

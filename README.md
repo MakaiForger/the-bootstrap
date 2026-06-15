@@ -1,4 +1,4 @@
-# The Bootstrap — Makai Forger
+# The Bootstrap — Makai Forge
 
 :brazil: **Português** | :us: [English](#english) | :es: [Español](#espanol)
 
@@ -6,11 +6,11 @@
 
 <a name="portugues"></a>
 
-# :brazil: The Bootstrap — Makai Forger
+# :brazil: The Bootstrap — Makai Forge
 
 ## O que é
 
-The Bootstrap é o sistema de inicialização, atualização e provisionamento do **Makai Forger**. É a primeira coisa que roda quando o aplicativo abre. Ele garante que todos os componentes (catálogo de jogos, API de instaladores, dados Proton, forks, DLLs) estejam na versão correta antes do app principal iniciar.
+The Bootstrap é o sistema de inicialização, atualização e provisionamento do **Makai Forge**. É a primeira coisa que roda quando o aplicativo abre. Ele garante que todos os componentes (catálogo de jogos, API de instaladores, dados Proton, forks, DLLs) estejam na versão correta antes do app principal iniciar.
 
 ---
 
@@ -39,7 +39,7 @@ Fica na raiz deste repositório. É o manifesto oficial com as versões mais rec
 
 ### 2. `metadata.json` (local — no disco do usuário)
 
-Fica na pasta de dados do Makai Forger no computador do usuário. Registra quais versões estão instaladas localmente.
+Fica na pasta de dados do Makai Forge no computador do usuário. Registra quais versões estão instaladas localmente.
 
 ```json
 {
@@ -57,12 +57,12 @@ Fica na pasta de dados do Makai Forger no computador do usuário. Registra quais
 ### Primeira execução (nunca baixou nada)
 
 ```
-1. Usuário abre o Makai Forger
+1. Usuário abre o Makai Forge
    ↓
 2. Bootstrap abre a janela de splash
    ↓
 3. Bootstrap baixa resonance.json de:
-   ├── Primário: https://github.com/MakaiForger/the-bootstrap/raw/main/resonance.json
+   ├── Primário: https://github.com/MakaiForge/the-bootstrap/raw/main/resonance.json
    └── Fallback: GitLab (project ID correspondente)
    ↓
 4. Bootstrap procura metadata.json local
@@ -72,7 +72,7 @@ Fica na pasta de dados do Makai Forger no computador do usuário. Registra quais
    ├── versão local (0) < versão remota (1)?
    │   └── SIM → precisa baixar
    ├── 5.1 Baixa o archive do release do componente
-   │   ├── Ex: https://github.com/MakaiForger/the-bootstrap/releases/download/catalogo-db-v0.0.1/catalogo.db.gz
+   │   ├── Ex: https://github.com/MakaiForge/the-bootstrap/releases/download/catalogo-db-v0.0.1/catalogo.db.gz
    │   └── Salva em: ~/.cache/makaiforger/downloads/catalogo.db.gz
    ├── 5.2 Calcula SHA-256 do arquivo baixado
    ├── 5.3 Compara com o SHA-256 do resonance.json
@@ -95,7 +95,7 @@ Fica na pasta de dados do Makai Forger no computador do usuário. Registra quais
 ### Execuções seguintes (já tem algo baixado)
 
 ```
-1. Usuário abre o Makai Forger
+1. Usuário abre o Makai Forge
    ↓
 2. Bootstrap abre splash
    ↓
@@ -192,7 +192,7 @@ Quando o Bootstrap termina de baixar e extrair tudo:
 
 Por padrão, o Bootstrap baixa e atualiza tudo automaticamente. Para desativar esse comportamento:
 
-1. Crie o arquivo `bootstrap.json` na pasta de dados do Makai Forger:
+1. Crie o arquivo `bootstrap.json` na pasta de dados do Makai Forge:
    ```
    ~/.config/makaiforger/bootstrap.json
    ```
@@ -333,11 +333,11 @@ Quando uma nova versão for publicada:
 
 <a name="english"></a>
 
-# :us: The Bootstrap — Makai Forger
+# :us: The Bootstrap — Makai Forge
 
 ## What it is
 
-The Bootstrap is the startup, update and provisioning system of **Makai Forger**. It is the first thing that runs when the application opens. It ensures that all components (game catalog, installer API, Proton data, forks, DLLs) are at the correct version before the main app starts.
+The Bootstrap is the startup, update and provisioning system of **Makai Forge**. It is the first thing that runs when the application opens. It ensures that all components (game catalog, installer API, Proton data, forks, DLLs) are at the correct version before the main app starts.
 
 ---
 
@@ -366,7 +366,7 @@ Located at the root of this repository. It is the official manifest with the lat
 
 ### 2. `metadata.json` (local — on the user's disk)
 
-Stored in the Makai Forger data folder on the user's machine. It records which versions are installed locally.
+Stored in the Makai Forge data folder on the user's machine. It records which versions are installed locally.
 
 ```json
 {
@@ -384,12 +384,12 @@ Stored in the Makai Forger data folder on the user's machine. It records which v
 ### First run (nothing downloaded yet)
 
 ```
-1. User opens Makai Forger
+1. User opens Makai Forge
    ↓
 2. Bootstrap opens splash window
    ↓
 3. Bootstrap downloads resonance.json from:
-   ├── Primary: https://github.com/MakaiForger/the-bootstrap/raw/main/resonance.json
+   ├── Primary: https://github.com/MakaiForge/the-bootstrap/raw/main/resonance.json
    └── Fallback: GitLab (corresponding project ID)
    ↓
 4. Bootstrap looks for local metadata.json
@@ -399,7 +399,7 @@ Stored in the Makai Forger data folder on the user's machine. It records which v
    ├── local version (0) < remote version (1)?
    │   └── YES → needs download
    ├── 5.1 Downloads the archive from the component's release
-   │   ├── Example: https://github.com/MakaiForger/the-bootstrap/releases/download/catalogo-db-v0.0.1/catalogo.db.gz
+   │   ├── Example: https://github.com/MakaiForge/the-bootstrap/releases/download/catalogo-db-v0.0.1/catalogo.db.gz
    │   └── Saves to: ~/.cache/makaiforger/downloads/catalogo.db.gz
    ├── 5.2 Calculates SHA-256 of downloaded file
    ├── 5.3 Compares with SHA-256 from resonance.json
@@ -422,7 +422,7 @@ Stored in the Makai Forger data folder on the user's machine. It records which v
 ### Subsequent runs (already has data)
 
 ```
-1. User opens Makai Forger
+1. User opens Makai Forge
    ↓
 2. Bootstrap opens splash
    ↓
@@ -519,7 +519,7 @@ When Bootstrap finishes downloading and extracting everything:
 
 By default, Bootstrap downloads and updates everything automatically. To disable this behavior:
 
-1. Create the file `bootstrap.json` in the Makai Forger data folder:
+1. Create the file `bootstrap.json` in the Makai Forge data folder:
    ```
    ~/.config/makaiforger/bootstrap.json
    ```
@@ -660,11 +660,11 @@ When a new version is published:
 
 <a name="espanol"></a>
 
-# :es: The Bootstrap — Makai Forger
+# :es: The Bootstrap — Makai Forge
 
 ## Qué es
 
-The Bootstrap es el sistema de inicio, actualización y aprovisionamiento de **Makai Forger**. Es lo primero que se ejecuta cuando la aplicación se abre. Garantiza que todos los componentes (catálogo de juegos, API de instaladores, datos de Proton, forks, DLLs) estén en la versión correcta antes de que la aplicación principal se inicie.
+The Bootstrap es el sistema de inicio, actualización y aprovisionamiento de **Makai Forge**. Es lo primero que se ejecuta cuando la aplicación se abre. Garantiza que todos los componentes (catálogo de juegos, API de instaladores, datos de Proton, forks, DLLs) estén en la versión correcta antes de que la aplicación principal se inicie.
 
 ---
 
@@ -693,7 +693,7 @@ Se encuentra en la raíz de este repositorio. Es el manifiesto oficial con las v
 
 ### 2. `metadata.json` (local — en el disco del usuario)
 
-Se almacena en la carpeta de datos de Makai Forger en la computadora del usuario. Registra qué versiones están instaladas localmente.
+Se almacena en la carpeta de datos de Makai Forge en la computadora del usuario. Registra qué versiones están instaladas localmente.
 
 ```json
 {
@@ -711,12 +711,12 @@ Se almacena en la carpeta de datos de Makai Forger en la computadora del usuario
 ### Primera ejecución (nunca descargó nada)
 
 ```
-1. El usuario abre Makai Forger
+1. El usuario abre Makai Forge
    ↓
 2. Bootstrap abre la ventana de splash
    ↓
 3. Bootstrap descarga resonance.json de:
-   ├── Primario: https://github.com/MakaiForger/the-bootstrap/raw/main/resonance.json
+   ├── Primario: https://github.com/MakaiForge/the-bootstrap/raw/main/resonance.json
    └── Fallback: GitLab (project ID correspondiente)
    ↓
 4. Bootstrap busca metadata.json local
@@ -726,7 +726,7 @@ Se almacena en la carpeta de datos de Makai Forger en la computadora del usuario
    ├── versión local (0) < versión remota (1)?
    │   └── SÍ → necesita descargar
    ├── 5.1 Descarga el archive del release del componente
-   │   ├── Ej: https://github.com/MakaiForger/the-bootstrap/releases/download/catalogo-db-v0.0.1/catalogo.db.gz
+   │   ├── Ej: https://github.com/MakaiForge/the-bootstrap/releases/download/catalogo-db-v0.0.1/catalogo.db.gz
    │   └── Guarda en: ~/.cache/makaiforger/downloads/catalogo.db.gz
    ├── 5.2 Calcula SHA-256 del archivo descargado
    ├── 5.3 Compara con el SHA-256 del resonance.json
@@ -749,7 +749,7 @@ Se almacena en la carpeta de datos de Makai Forger en la computadora del usuario
 ### Ejecuciones siguientes (ya tiene datos)
 
 ```
-1. El usuario abre Makai Forger
+1. El usuario abre Makai Forge
    ↓
 2. Bootstrap abre splash
    ↓
@@ -847,7 +847,7 @@ Cuando Bootstrap termina de descargar y extraer todo:
 
 Por defecto, Bootstrap descarga y actualiza todo automáticamente. Para desactivar este comportamiento:
 
-1. Cree el archivo `bootstrap.json` en la carpeta de datos de Makai Forger:
+1. Cree el archivo `bootstrap.json` en la carpeta de datos de Makai Forge:
    ```
    ~/.config/makaiforger/bootstrap.json
    ```
