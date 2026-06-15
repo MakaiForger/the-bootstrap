@@ -159,7 +159,7 @@ function getResourceOutputPath(resourceName: string): string {
 
 function needsUpdate(resourceName: string, remoteEntry: ResourceEntry, localMeta: Metadata | null): boolean {
   if (!localMeta) return true;
-  const localEntry = localMeta.components[resourceName];
+  const localEntry = Object.values(localMeta.components).find(e => e.archive === resourceName);
   if (!localEntry) return true;
   if (localEntry.version < remoteEntry.version) return true;
   const outputPath = getResourceOutputPath(resourceName);
@@ -229,7 +229,7 @@ export async function ensureResources(): Promise<boolean> {
   fs.mkdirSync(path.join(resourcesDir, ".cache"), { recursive: true });
 
   for (const resourceName of KNOWN_RESOURCES) {
-    const entry = remoteMeta.components[resourceName];
+    const entry = Object.values(remoteMeta.components).find(e => e.archive === resourceName);
     if (!entry) {
       logger.warn(`[resources] ${resourceName} not in remote metadata`);
       continue;
