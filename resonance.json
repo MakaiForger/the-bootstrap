@@ -6,49 +6,70 @@
       "tag": "bootstrap-v0.0.1",
       "sha256": "a523c6f970a050c1fef45d32ebdf87949b57d3ac20b397e5bb05119cee5caf7f",
       "size": 2396160,
-      "archive": "bootstrap.tar.gz"
+      "original_size": 0,
+      "archive": "bootstrap.tar.gz",
+      "github_repo": "MakaiForger/the-bootstrap",
+      "gitlab_project_id": 0
     },
     "installer-api": {
       "version": 8,
       "tag": "installer-api-v0.0.7",
       "sha256": "d588004dfe6c96f295cacca5bb85c172fc7ebe03e44565f54d94f2f538940ff1",
       "size": 6632,
-      "archive": "installer-api.tar.gz"
+      "original_size": 0,
+      "archive": "installer-api.tar.gz",
+      "github_repo": "MakaiForger/the-bootstrap",
+      "gitlab_project_id": 83101354
     },
     "catalogo-db": {
       "version": 1,
       "tag": "catalogo-db-v0.0.1",
       "sha256": "af72a2fd992a5a6274035137dd5421f029683c61e50d0d5936bf7fc264a7555e",
       "size": 55951414,
-      "archive": "catalogo.db.gz"
+      "original_size": 263843840,
+      "archive": "catalogo.db.gz",
+      "github_repo": "MakaiForger/the-bootstrap",
+      "gitlab_project_id": 83081380
     },
     "proton-data-db": {
       "version": 1,
       "tag": "proton-data-db-v0.0.1",
       "sha256": "d53ba0556ad25195441cfd4f8cb7dba1a7e5c4b40dab1715c4d4439b00adb111",
       "size": 77782443,
-      "archive": "proton_data.db.gz"
+      "original_size": 293851136,
+      "archive": "proton_data.db.gz",
+      "github_repo": "MakaiForger/the-bootstrap",
+      "gitlab_project_id": 83081381
     },
     "fork-catalog-data": {
       "version": 1,
       "tag": "fork-catalog-data-v0.0.1",
       "sha256": "f81094489d2cde0aca9850d6f2b3163d444ac31aa1a12d90de9a4d90cb50f40a",
       "size": 782000,
-      "archive": "fork_catalog.db.gz"
+      "original_size": 319488,
+      "archive": "fork_catalog.db.gz",
+      "github_repo": "MakaiForger/the-bootstrap",
+      "gitlab_project_id": 83110945
     },
     "game-dlls-data": {
       "version": 1,
       "tag": "game-dlls-data-v0.0.1",
       "sha256": "c6adfbb599b6f441c07854a06b71b1cc2a41bc978c66e58a4c2f133b27e37746",
       "size": 2947,
-      "archive": "game_dlls.db.gz"
+      "original_size": 20480,
+      "archive": "game_dlls.db.gz",
+      "github_repo": "MakaiForger/the-bootstrap",
+      "gitlab_project_id": 83123076
     },
     "releases-data": {
       "version": 1,
       "tag": "releases-data-v0.0.1",
       "sha256": "91b6ac8de9455969fab85993e431ee7a203841ec313b107f9ba2443dd163c2b4",
       "size": 311296,
-      "archive": "releases.tar.gz"
+      "original_size": 0,
+      "archive": "releases.tar.gz",
+      "github_repo": "MakaiForger/the-bootstrap",
+      "gitlab_project_id": 0
     }
   }
 }
