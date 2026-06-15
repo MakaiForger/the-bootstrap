@@ -40,6 +40,20 @@ function getLocalMetadataPath(): string {
   return path.join(app.getPath("userData"), "resources", "resonance.json");
 }
 
+function getAutoUpdatePath(): string {
+  return path.join(app.getPath("userData"), "bootstrap.json");
+}
+
+function isAutoUpdateEnabled(): boolean {
+  try {
+    const raw = fs.readFileSync(getAutoUpdatePath(), "utf-8");
+    const config = JSON.parse(raw);
+    return config.auto_update !== 0;
+  } catch {
+    return true;
+  }
+}
+
 function getUserDataDir(): string {
   return path.join(app.getPath("userData"), "resources");
 }
@@ -194,6 +208,12 @@ function extractTarGz(tarPath: string, outputDir: string): Promise<void> {
 }
 
 export async function ensureResources(): Promise<boolean> {
+  if (!isAutoUpdateEnabled()) {
+    logger.info("[resources] Auto-update disabled via bootstrap.json (auto_update=0)");
+    const hasDb = fs.existsSync(getCatalogoPath()) && fs.existsSync(getProtonDataPath());
+    return hasDb;
+  }
+
   sendProgress("checking", 0, "Verificando recursos...");
 
   const remoteMeta = await fetchMetadata();

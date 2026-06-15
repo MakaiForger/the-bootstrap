@@ -4,8 +4,8 @@
     "bootstrap": {
       "version": 1,
       "tag": "bootstrap-v0.0.1",
-      "sha256": "a523c6f970a050c1fef45d32ebdf87949b57d3ac20b397e5bb05119cee5caf7f",
-      "size": 2396160,
+      "sha256": "d74705009628e83737953691c5a7814212fa939673b2564be1473db8588a1fe2",
+      "size": 2462171,
       "original_size": 0,
       "archive": "bootstrap.tar.gz",
       "github_repo": "MakaiForger/the-bootstrap",
