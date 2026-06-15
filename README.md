@@ -181,12 +181,31 @@ Quando o Bootstrap termina de baixar e extrair tudo:
 ### Exemplo prático
 
 | Data | Ação | catalogo-db (local) | catalogo-db (remoto) | Baixou? |
-|------|------|--------------------|--------------------|---------|
+|------|--------|--------------------|---------------------|-------------|
 | 01/01 | Primeira execução | 0 | 1 | Sim |
 | 02/01 | Abre de novo | 1 | 1 | Não |
 | 05/01 | Dev publica v0.0.2 | 1 | 2 | Sim |
 | 06/01 | Abre de novo | 2 | 2 | Não |
 | 10/01 | Dev publica v0.0.3 | 2 | 3 | Sim |
+
+### Auto-update: desativar atualizações automáticas
+
+Por padrão, o Bootstrap baixa e atualiza tudo automaticamente. Para desativar esse comportamento:
+
+1. Crie o arquivo `bootstrap.json` na pasta de dados do Makai Forger:
+   ```
+   ~/.config/makaiforger/bootstrap.json
+   ```
+2. Com o conteúdo:
+   ```json
+   { "auto_update": 0 }
+   ```
+3. Com `1` (padrão) = atualiza automaticamente. Com `0` = nunca atualiza, usa os arquivos locais como estão.
+
+Isso é útil para:
+- Usuários que querem congelar uma versão específica que funciona bem
+- Desenvolvedores modificando arquivos manualmente sem o Bootstrap sobrescrever
+- Testes sem interferência do sistema de atualização
 
 ---
 
@@ -452,6 +471,25 @@ When Bootstrap finishes downloading and extracting everything:
 | Jan 6 | Opens again | 2 | 2 | No |
 | Jan 10 | Dev publishes v0.0.3 | 2 | 3 | Yes |
 
+### Auto-update: disabling automatic updates
+
+By default, Bootstrap downloads and updates everything automatically. To disable this behavior:
+
+1. Create the file `bootstrap.json` in the Makai Forger data folder:
+   ```
+   ~/.config/makaiforger/bootstrap.json
+   ```
+2. With the content:
+   ```json
+   { "auto_update": 0 }
+   ```
+3. `1` (default) = auto-update enabled. `0` = never update, use local files as-is.
+
+This is useful for:
+- Users who want to freeze a specific version that works well
+- Developers modifying files manually without Bootstrap overwriting them
+- Testing without interference from the updater
+
 ---
 
 ## Components
@@ -716,6 +754,25 @@ Cuando Bootstrap termina de descargar y extraer todo:
 | 05/01 | Dev publica v0.0.2 | 1 | 2 | Sí |
 | 06/01 | Abre de nuevo | 2 | 2 | No |
 | 10/01 | Dev publica v0.0.3 | 2 | 3 | Sí |
+
+### Auto-update: desactivar actualizaciones automáticas
+
+Por defecto, Bootstrap descarga y actualiza todo automáticamente. Para desactivar este comportamiento:
+
+1. Cree el archivo `bootstrap.json` en la carpeta de datos de Makai Forger:
+   ```
+   ~/.config/makaiforger/bootstrap.json
+   ```
+2. Con el contenido:
+   ```json
+   { "auto_update": 0 }
+   ```
+3. Con `1` (predeterminado) = actualiza automáticamente. Con `0` = nunca actualiza, usa los archivos locales como están.
+
+Esto es útil para:
+- Usuarios que quieren congelar una versión específica que funciona bien
+- Desarrolladores modificando archivos manualmente sin que Bootstrap los sobrescriba
+- Pruebas sin interferencia del actualizador
 
 ---
 
