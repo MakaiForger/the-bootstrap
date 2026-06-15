@@ -5,37 +5,39 @@ import { app } from "electron";
 import { logger } from "@main/services/logger";
 import { WindowManager } from "@main/services/window-manager";
 
-const TAG = "v1.0.0";
-
 const METADATA_MIRRORS = [
-  `https://github.com/lucasgertke11-bot/venv/releases/download/${TAG}/metadata.json`,
-  `https://gitlab.com/api/v4/projects/83079801/packages/generic/metadata/v1.0.0/metadata.json`,
+  `https://raw.githubusercontent.com/MakaiForger/the-bootstrap/main/resonance.json`,
+  `https://gitlab.com/api/v4/projects/83110951/repository/files/resonance.json/raw`,
 ];
 
 interface ResourceEntry {
   version: number;
+  tag: string;
   sha256: string;
   size: number;
   original_size: number;
+  archive: string;
   github_repo: string;
   gitlab_project_id: number;
 }
 
 interface Metadata {
   version: number;
-  resources: Record<string, ResourceEntry>;
+  components: Record<string, ResourceEntry>;
 }
 
 const KNOWN_RESOURCES = [
+  "bootstrap.tar.gz",
+  "installer-api.tar.gz",
   "catalogo.db.gz",
   "proton_data.db.gz",
+  "fork_catalog.db.gz",
+  "game_dlls.db.gz",
   "releases.tar.gz",
-  "sources.tar.gz",
-  "installer-api.tar.gz",
 ];
 
 function getLocalMetadataPath(): string {
-  return path.join(app.getPath("userData"), "resources", "metadata.json");
+  return path.join(app.getPath("userData"), "resources", "resonance.json");
 }
 
 function getUserDataDir(): string {
@@ -44,7 +46,7 @@ function getUserDataDir(): string {
 
 function getMirrorUrls(entry: ResourceEntry, filename: string): string[] {
   return [
-    `https://github.com/${entry.github_repo}/releases/download/${TAG}/${filename}`,
+    `https://github.com/${entry.github_repo}/releases/download/${entry.tag}/${filename}`,
     `https://gitlab.com/api/v4/projects/${entry.gitlab_project_id}/packages/generic/${entry.github_repo.split('/')[1]}/v1.0.0/${filename}`,
   ];
 }
@@ -101,7 +103,7 @@ function sha256File(filePath: string): string {
 
 function fetchMetadata(): Promise<Metadata | null> {
   return new Promise((resolve) => {
-    const tmpPath = path.join(app.getPath("userData"), "resources", "metadata.tmp.json");
+    const tmpPath = path.join(app.getPath("userData"), "resources", "resonance.tmp.json");
     fs.mkdirSync(path.dirname(tmpPath), { recursive: true });
 
     downloadFile(METADATA_MIRRORS, tmpPath)
@@ -132,16 +134,18 @@ function loadLocalMetadata(): Metadata | null {
 function getResourceOutputPath(resourceName: string): string {
   const resourcesDir = getResourceDir();
   if (resourceName === "releases.tar.gz") return path.join(resourcesDir, "data", "releases");
-  if (resourceName === "sources.tar.gz") return path.join(resourcesDir, "data", "sources");
+  if (resourceName === "bootstrap.tar.gz") return path.join(resourcesDir, "bootstrap");
   if (resourceName === "installer-api.tar.gz") return path.join(resourcesDir, "installer-api", "index.js");
   if (resourceName === "catalogo.db.gz") return path.join(resourcesDir, "database", "catalogo.db");
   if (resourceName === "proton_data.db.gz") return path.join(resourcesDir, "database", "proton_data.db");
+  if (resourceName === "fork_catalog.db.gz") return path.join(resourcesDir, "database", "fork_catalog.db");
+  if (resourceName === "game_dlls.db.gz") return path.join(resourcesDir, "database", "game_dlls.db");
   return "";
 }
 
 function needsUpdate(resourceName: string, remoteEntry: ResourceEntry, localMeta: Metadata | null): boolean {
   if (!localMeta) return true;
-  const localEntry = localMeta.resources[resourceName];
+  const localEntry = localMeta.components[resourceName];
   if (!localEntry) return true;
   if (localEntry.version < remoteEntry.version) return true;
   const outputPath = getResourceOutputPath(resourceName);
@@ -205,7 +209,7 @@ export async function ensureResources(): Promise<boolean> {
   fs.mkdirSync(path.join(resourcesDir, ".cache"), { recursive: true });
 
   for (const resourceName of KNOWN_RESOURCES) {
-    const entry = remoteMeta.resources[resourceName];
+    const entry = remoteMeta.components[resourceName];
     if (!entry) {
       logger.warn(`[resources] ${resourceName} not in remote metadata`);
       continue;
@@ -240,11 +244,11 @@ export async function ensureResources(): Promise<boolean> {
     try {
       if (resourceName === "releases.tar.gz") {
         await extractTarGz(downloadPath, path.join(resourcesDir, "data"));
-      } else if (resourceName === "sources.tar.gz") {
-        await extractTarGz(downloadPath, path.join(resourcesDir, "data"));
+      } else if (resourceName === "bootstrap.tar.gz") {
+        await extractTarGz(downloadPath, path.join(resourcesDir, "bootstrap"));
       } else if (resourceName === "installer-api.tar.gz") {
         await extractTarGz(downloadPath, path.join(resourcesDir, "installer-api"));
-      } else if (resourceName.endsWith(".gz")) {
+      } else if (resourceName.endsWith(".db.gz")) {
         const baseName = resourceName.replace(".gz", "");
         const outputPath = path.join(resourcesDir, "database", baseName);
         await extractGz(downloadPath, outputPath);
@@ -254,8 +258,8 @@ export async function ensureResources(): Promise<boolean> {
       continue;
     }
 
-    const localMeta2 = loadLocalMetadata() || { version: 0, resources: {} };
-    localMeta2.resources[resourceName] = entry;
+    const localMeta2 = loadLocalMetadata() || { version: 0, components: {} };
+    localMeta2.components[resourceName] = entry;
     fs.writeFileSync(getLocalMetadataPath(), JSON.stringify(localMeta2, null, 2));
 
     sendProgress("ready", 100, `${resourceName} pronto`);
