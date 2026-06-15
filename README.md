@@ -287,6 +287,50 @@ Abra uma issue com prefixo `[FEATURE]` no título.
 
 ---
 
+## 📓 Histórico de atualizações
+
+> **Regra fundamental:** nenhuma versão é jamais deletada ou sobrescrita. Cada release novo apenas adiciona uma entrada nova no histórico. Versões antigas continuam acessíveis para rollback.
+
+### Como atualizar um componente
+
+1. **Prepare o archive** do componente com as alterações desejadas
+2. **Calcule o SHA-256:**
+   ```bash
+   sha256sum <arquivo>.tar.gz   # para código
+   sha256sum <arquivo>.db.gz    # para banco de dados
+   ```
+   Copie o hash gerado (ex: `d74705009628e83737953691c5a7814212fa939673b2564be1473db8588a1fe2`)
+3. **Crie o release** no GitHub:
+   - Tag: `<componente>-v<nova-versão>` (ex: `bootstrap-v0.0.2`)
+   - Asset: o archive
+   - Body: descreva o que mudou
+4. **Atualize o `resonance.json`** na raiz deste repositório:
+   - Incremente o `version` do componente
+   - Atualize `tag`, `sha256` (o hash do passo 2), `size` (bytes)
+5. **Commit e push**
+
+### Registro de versões
+
+| Versão | Data | O que mudou |
+|--------|------|-------------|
+| `bootstrap-v0.0.1` | 2026-06-15 | Release inicial do ecossistema unificado. Inclui: Bootstrap (orquestrador), Installer API v0.0.7, Catálogo DB, Proton Data DB, Fork Catalog, Game DLLs, Releases Data. |
+| `installer-api-v0.0.7` | 2026-06-15 | API de classificação e extração com 7 extractors (archive, exe-companions, inno-std, iso, portable, sfx-nsis, wine-fallback). |
+| `catalogo-db-v0.0.1` | 2026-06-15 | Banco SQLite com ~179k jogos Steam + custom, schema com FTS5, metadados completos. |
+| `proton-data-db-v0.0.1` | 2026-06-15 | ~81k relatórios de compatibilidade Proton do ProtonDB. |
+| `fork-catalog-data-v0.0.1` | 2026-06-15 | 30 forks catalogados (Proton, Wine, DXVK, VKD3D), 59 releases em cache. |
+| `game-dlls-data-v0.0.1` | 2026-06-15 | 13 jogos mapeados, 10 DLLs catalogadas com winetricks e overrides. |
+| `releases-data-v0.0.1` | 2026-06-15 | Metadados consolidados de fallback para todo o ecossistema. |
+
+### Próximas atualizações
+
+Quando uma nova versão for publicada:
+- A versão antiga **continua existindo** como release no GitHub
+- O `resonance.json` é atualizado com a nova entrada
+- O Bootstrap compara versões na próxima inicialização e baixa a nova se necessário
+- Usuários que quiserem permanecer na versão antiga podem desativar o auto-update (`bootstrap.json` → `auto_update: 0`)
+
+---
+
 <a name="english"></a>
 
 # :us: The Bootstrap — Makai Forger
@@ -567,6 +611,50 @@ Open an issue with:
 ### I want to request a feature
 
 Open an issue with `[FEATURE]` prefix in the title.
+
+---
+
+## 📓 Update history
+
+> **Golden rule:** no version is ever deleted or overwritten. Each new release just adds a new entry to the history. Old versions remain accessible for rollback.
+
+### How to update a component
+
+1. **Prepare the archive** with your changes
+2. **Calculate the SHA-256:**
+   ```bash
+   sha256sum <file>.tar.gz   # for code
+   sha256sum <file>.db.gz    # for databases
+   ```
+   Copy the generated hash (e.g. `d74705009628e83737953691c5a7814212fa939673b2564be1473db8588a1fe2`)
+3. **Create the release** on GitHub:
+   - Tag: `<component>-v<new-version>` (e.g. `bootstrap-v0.0.2`)
+   - Asset: the archive
+   - Body: describe what changed
+4. **Update `resonance.json`** in the root of this repository:
+   - Increment the component's `version`
+   - Update `tag`, `sha256` (hash from step 2), `size` (bytes)
+5. **Commit and push**
+
+### Version log
+
+| Version | Date | What changed |
+|---------|------|-------------|
+| `bootstrap-v0.0.1` | 2026-06-15 | Initial unified ecosystem release. Includes: Bootstrap (orchestrator), Installer API v0.0.7, Catalogo DB, Proton Data DB, Fork Catalog, Game DLLs, Releases Data. |
+| `installer-api-v0.0.7` | 2026-06-15 | Installer classification and extraction API with 7 extractors (archive, exe-companions, inno-std, iso, portable, sfx-nsis, wine-fallback). |
+| `catalogo-db-v0.0.1` | 2026-06-15 | SQLite database with ~179k Steam + custom games, FTS5 schema, full metadata. |
+| `proton-data-db-v0.0.1` | 2026-06-15 | ~81k Proton compatibility reports from ProtonDB. |
+| `fork-catalog-data-v0.0.1` | 2026-06-15 | 30 cataloged forks (Proton, Wine, DXVK, VKD3D), 59 cached releases. |
+| `game-dlls-data-v0.0.1` | 2026-06-15 | 13 mapped games, 10 cataloged DLLs with winetricks and overrides. |
+| `releases-data-v0.0.1` | 2026-06-15 | Consolidated fallback metadata for the entire ecosystem. |
+
+### Upcoming updates
+
+When a new version is published:
+- The old version **remains** as a GitHub release
+- `resonance.json` is updated with the new entry
+- Bootstrap compares versions on next startup and downloads the new one if needed
+- Users who want to stay on the old version can disable auto-update (`bootstrap.json` → `auto_update: 0`)
 
 ---
 
@@ -851,3 +939,47 @@ Abra un issue con:
 ### Quiero solicitar una funcionalidad
 
 Abra un issue con el prefijo `[FEATURE]` en el título.
+
+---
+
+## 📓 Historial de actualizaciones
+
+> **Regla fundamental:** ninguna versión es jamás eliminada o sobrescrita. Cada nuevo release solo agrega una entrada nueva al historial. Las versiones antiguas continúan accesibles para rollback.
+
+### Cómo actualizar un componente
+
+1. **Prepare el archive** con los cambios deseados
+2. **Calcule el SHA-256:**
+   ```bash
+   sha256sum <archivo>.tar.gz   # para código
+   sha256sum <archivo>.db.gz    # para base de datos
+   ```
+   Copie el hash generado (ej: `d74705009628e83737953691c5a7814212fa939673b2564be1473db8588a1fe2`)
+3. **Cree el release** en GitHub:
+   - Tag: `<componente>-v<nueva-versión>` (ej: `bootstrap-v0.0.2`)
+   - Asset: el archive
+   - Body: describa lo que cambió
+4. **Actualice `resonance.json`** en la raíz de este repositorio:
+   - Incremente el `version` del componente
+   - Actualice `tag`, `sha256` (el hash del paso 2), `size` (bytes)
+5. **Commit y push**
+
+### Registro de versiones
+
+| Versión | Fecha | Qué cambió |
+|---------|-------|-------------|
+| `bootstrap-v0.0.1` | 2026-06-15 | Release inicial del ecosistema unificado. Incluye: Bootstrap (orquestador), Installer API v0.0.7, Catálogo DB, Proton Data DB, Fork Catalog, Game DLLs, Releases Data. |
+| `installer-api-v0.0.7` | 2026-06-15 | API de clasificación y extracción con 7 extractors (archive, exe-companions, inno-std, iso, portable, sfx-nsis, wine-fallback). |
+| `catalogo-db-v0.0.1` | 2026-06-15 | Base de datos SQLite con ~179k juegos Steam + personalizados, schema con FTS5, metadatos completos. |
+| `proton-data-db-v0.0.1` | 2026-06-15 | ~81k informes de compatibilidad Proton de ProtonDB. |
+| `fork-catalog-data-v0.0.1` | 2026-06-15 | 30 forks catalogados (Proton, Wine, DXVK, VKD3D), 59 releases en caché. |
+| `game-dlls-data-v0.0.1` | 2026-06-15 | 13 juegos mapeados, 10 DLLs catalogadas con winetricks y overrides. |
+| `releases-data-v0.0.1` | 2026-06-15 | Metadatos consolidados de fallback para todo el ecosistema. |
+
+### Próximas actualizaciones
+
+Cuando se publique una nueva versión:
+- La versión antigua **sigue existiendo** como release en GitHub
+- `resonance.json` se actualiza con la nueva entrada
+- Bootstrap compara versiones en el próximo inicio y descarga la nueva si es necesario
+- Los usuarios que quieran permanecer en la versión antigua pueden desactivar el auto-update (`bootstrap.json` → `auto_update: 0`)
